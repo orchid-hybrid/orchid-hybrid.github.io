@@ -1,5 +1,5 @@
 ---
-layout: post_page
+layout: post
 title: a bug in binutils
 ---
 
