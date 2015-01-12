@@ -16,5 +16,6 @@ I got some further insight into why this isn't giving me a good speedup. The too
 
 Random extra links:
 
-* <a href="http://codon.com/compilers-for-free#partial-evaluation">Compilers for Free</a>
 * <a href="http://blog.sigfpe.com/2009/05/three-projections-of-doctor-futamura.html">The Three Projections of Doctor Futamura</a>
+* <a href="http://wry.me/misc/peval.html">Darius Bacon - A Hacker's Introduction to Partial Evaluation</a>
+* <a href="http://codon.com/compilers-for-free#partial-evaluation">Compilers for Free</a>
