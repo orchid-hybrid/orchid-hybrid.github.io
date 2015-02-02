@@ -27,6 +27,6 @@ It has a file server and a basic TCP/IP stack that is used as part of the bootst
 
 It has its own common lisp implementation with compiler and runtime system, it may not be very optimized yet (froggey mentioned that it doesn't do register coloring) but it is able to compile many serious common lisp libraries like asdf, various image formats and of course the operating system itself.
 
-and as you can see from the screenshot there is a graphical user interface desktop that you boot into with a lisp REPL, an IRC client, a rougelike game and telnet!
+and as you can see from the screenshot there is a graphical user interface desktop that you boot into with a lisp REPL, an IRC client and telnet!
 
 It's so inspiring to see people create amazing things like this. froggey was brave to spend that time working on this and to release the sources for people to play with and learn from.
