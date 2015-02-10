@@ -11,23 +11,23 @@ I thought it would be a good exercise to write a formal specification for this f
 
 First I defined a predicate `P` that holds when two lists contain the same element.
 
-<code>
+```
 Definition P {A} (u v : list A) := exists x, In x u /\ In x v.
-</code>
+```
 
 Then I defined a specification for the function I want:
 
-<code>
+```
 Definition Spec (f : list nat -> list nat -> bool) :=
   forall u v, StronglySorted (lt) u -> StronglySorted (lt) v ->
    if f u v then P u v else ~ P u v.
-</code>
+```
 
 So `Spec f` states that, applied to sorted lists `u` and `v`, if `f u v` is true then the lists meet, otherwise they don't.
 
 Next to implement the function itself, this is a bit tricky in a total language like Coq!
 
-<code>
+```
 Require Import Recdef.
 
 Definition totallen (uv : list nat * list nat) := length (fst uv) + length (snd uv).
@@ -53,7 +53,7 @@ omega.
 unfold totallen; intros; destruct uv; simpl in *; subst; simpl.
 omega.
 Defined.
-</code>
+```
 
 Overall it should be readable as a normal recursive function (given the knowledge that `lt_eq_lt_dec` checks if `x < y`, `x = y` or `x > y`). There's a few subtle things in it though, which I had to change around to get it all right: For example it takes a pair of lists rather than two parameters, I had to change it to be like that to get it accepted by the system.
 
@@ -73,11 +73,11 @@ Proof.
   apply (intp_ind (fun uv b => StronglySorted lt (fst uv) -> StronglySorted lt (snd uv) -> if b then P (fst uv) (snd uv) else ~ P (fst uv) (snd uv)))
   ...
   ...
-</code>
+```
 
 and it gives you one case that you have to prove for each line of the function, in the recursive ones you get an induction hypothesis that you need to make use of. The proof was very easy, just shuffling around lemmas and fitting them together, and once it was completed you get a nice Ocaml version of the function which you know works on sorted inputs!
 
-<code>
+```
 Qed.
 
 Extraction Language Ocaml.
@@ -104,4 +104,4 @@ let rec intp uv =
 
 
  ***)
-</code>
+```
