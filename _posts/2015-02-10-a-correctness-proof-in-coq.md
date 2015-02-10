@@ -63,7 +63,7 @@ To be able to define a function isn't enough, you also need to be able to do a p
 
 So I started the proof like this:
 
-<code>
+````
 Theorem intp_Spec : Spec' intp.
 Proof.
   unfold Spec'.
