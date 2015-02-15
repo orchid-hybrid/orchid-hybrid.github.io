@@ -141,7 +141,7 @@ Now for some results! If the HTML works you should be able to see rows code:grap
  (begin (go 20) 0)))))))
 </pre>
 
-<img src="http://i.imgur.com/LcgYbLl.png"></img>
+<img src="http://i.imgur.com/Af9uqGA.png"></img>
 
 ## UFO14<
 
