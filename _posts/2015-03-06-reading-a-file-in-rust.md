@@ -44,7 +44,7 @@ use std::fs::File;
 use std::io::{BufReader, BufReadExt};
 ```
 
-This is all stuff from the standard library. Now the stdlib will be changing rapidly (whch is why I started by saying this code would probably not work soon) but let's look at how to open a File.
+This is all stuff from the standard library. Now the stdlib will be changing rapidly (which is why I started by saying this code would probably not work soon) but let's look at how to open a File.
 
 * [std/fs/struct.File](https://doc.rust-lang.org/std/fs/struct.File.html)
 * [std/path/trait.AsPath](https://doc.rust-lang.org/std/path/trait.AsPath.html)
