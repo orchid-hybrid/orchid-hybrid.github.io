@@ -64,7 +64,7 @@ The type signature is complicated `fn open<P: AsPath + ?Sized>(path: &P) -> Resu
     };
 ```
 
-You have to explicitly match on the resut of File::open rather than using `try!` like the example code shows (the example code doesn't work), I don't know why.
+You have to explicitly match on the resut of File::open rather than using `try!` like the example code shows (the example code doesn't work), I don't know why. (update: Here's why https://www.reddit.com/r/rust/comments/2y819v/try_macro_not_working_for_me/)
 
 Now that we have a File opened we can use BufRead (In particular one of the extensions to BufRead) to get the lines of the file:
 
