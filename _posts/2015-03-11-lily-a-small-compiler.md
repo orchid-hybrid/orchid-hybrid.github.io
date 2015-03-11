@@ -53,7 +53,7 @@ and here's an example program:
             (return (fizzbuzz (+ x 1))))))
 ```
 
-lily compiles this to assembly code which you can run!
+lily compiles this to x86 64-bit assembly code which you can assembly with nasm and run!
 
 The language is very simple. You can't heap allocate anything, the only variables you have are those stack allocated when calling a procedure. The only data type is a 64 bit integer.
 
