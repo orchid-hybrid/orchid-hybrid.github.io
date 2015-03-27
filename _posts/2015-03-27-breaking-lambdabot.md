@@ -100,7 +100,7 @@ Prelude Control.Monad.ST Unsafe.Coerce> runST (unsafeCoerce (do print "hi" ; ret
 3
 ```
 
-An ST s a is just a newtype wrapper `for s -> (# s, a #)`. That means in terms of implementation they are the same: newtypes don't exist as runtime - they're only used to help make type errors when programmers make mistakes. We can unsafeCoerce from one to the other.
+An ST s a is just a newtype wrapper for `s -> (# s, a #)`. That means in terms of implementation they are the same: newtypes don't exist as runtime - they're only used to help make type errors when programmers make mistakes. We can unsafeCoerce from one to the other.
 
 With that in mind here's my attempt:
 
@@ -166,9 +166,11 @@ If you like to think of "types as propositions" as values as proofs then you can
 
 There is a strong assumption that haskell code is type safe and it's relied on. I think the security of haskell programs would improve if uses of unsafe operators was replaced with safe versions of the common patterns they are used in.
 
+Generally the type system is just thought of as an aid to the programmer, to help them find mistakes. In this situation the type system is being relied on to help "parse" whether code is safe to run or not, subverting the type system enabled one to escalate.
+
 Something to take more seriously in modern 'strongly typed' languages is type safety. We should try to produce progress and preservation proofs for any type system features we want to add to a language. Haskell and Rust do not do this but working out the mathematics like this could really help them improve their languages and design.
 
-Related: Just recently [False was proved in Coq](https://github.com/clarus/falso) based on the vm_compute tactic. This does let you write `unsafeCoerce : forall (A : Set) (B : Set), A -> B` but I don't think you can get "code execution" from Coq using that it doesn't have an IO monad. What is really gives you is 'theory escalation' where you go from the (exepected) Coq theory to a stronger theory where everything can be proved.
+Related: Just recently [False was proved in Coq](https://github.com/clarus/falso) based on the vm_compute tactic. This does let you write `unsafeCoerce : forall (A : Set) (B : Set), A -> B` but I don't think you can get "code execution" from Coq using that it doesn't have an IO monad. What is really gives you is 'theory escalation' where you go from the (expected) Coq theory to a stronger theory where everything can be proved.
 
 And some related links:
 
