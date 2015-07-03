@@ -43,10 +43,10 @@ Here are the regular expressions that describes the tokens in the simple calcula
 
 ```
 (define r-dig '(or (symbol #\0)
-		   (or (symbol #\1)
-		       (or (symbol #\2)
-			   (or (symbol #\3)
-			       (empty))))))
+	           (or (symbol #\1)
+                       (or (symbol #\2)
+                	   (or (symbol #\3)
+                               (empty))))))
 (define r-num `(seq ,r-dig (kleene ,r-dig)))
 
 (define r-plus `(symbol #\+))
@@ -102,14 +102,14 @@ Here is code generated my regvec compiler (it renamed the states as ints):
 (define (token state char)
   (case state
     ((2) (case char
-	   ((#\0 #\1 #\2 #\3) '1)
-	   ((#\+) '3)
-	   ((#\*) '4)
-	   ((#\x #\y) '5)
-	   (else #f)))
+           ((#\0 #\1 #\2 #\3) '1)
+           ((#\+) '3)
+           ((#\*) '4)
+           ((#\x #\y) '5)
+           (else #f)))
     ((1) (case char
-	   ((#\0 #\1 #\2 #\3) '1)
-	   (else #f)))
+           ((#\0 #\1 #\2 #\3) '1)
+           (else #f)))
     (else #f)))
 
 (define (accepting? state)
