@@ -43,9 +43,9 @@ Here are the regular expressions that describes the tokens in the simple calcula
 
 ```
 (define r-dig '(or (symbol #\0)
-	           (or (symbol #\1)
+                   (or (symbol #\1)
                        (or (symbol #\2)
-                	   (or (symbol #\3)
+                           (or (symbol #\3)
                                (empty))))))
 (define r-num `(seq ,r-dig (kleene ,r-dig)))
 
